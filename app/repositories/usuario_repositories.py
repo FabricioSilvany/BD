@@ -17,7 +17,7 @@ class UsuarioRepository:
         self.session.commit()
 
     def listar_usuarios(self):
-        return self.session.query(Usuario)
+        return self.session.query(Usuario).all()
 
     def atualizar_usuario(self, usuario:Usuario):
         self.session.commit()
