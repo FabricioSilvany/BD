@@ -27,4 +27,7 @@ def get_db():
         yield db #Realiza tentativa de operação no DB.
         db.commit() #Salvando no db
     except Exception as erro:
-        
+        db.rollback() #Caso ocorra algum erro, desfaz alterações no BD.
+        raise erro #Caso ocorra algum erro, mostra mensagem de erro no terminal
+    finally:
+        db.close() #Fecha conexão com BD.
