@@ -12,11 +12,11 @@ class UsuarioRepository:
     def pesquisar_usuario_por_email(self, email:str):
         return self.session.query(Usuario).filter_by(email = email).first()
     
-    def excluir_usuario(self, usuario:Usuario):
+    def excluir_usuario(self, usuario: Usuario):
         self.session.delete(usuario)
         self.session.commit()
 
-    def listar_usuarios(self):
+    def listar_todos_usuarios(self):
         return self.session.query(Usuario).all()
 
     def atualizar_usuario(self, usuario:Usuario):
